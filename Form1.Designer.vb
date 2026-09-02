@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmBlocNotas
     Inherits System.Windows.Forms.Form
 
@@ -30,7 +30,11 @@ Partial Class frmBlocNotas
         rtbDocumento = New RichTextBox()
         ArchivoToolStripMenuItem = New ToolStripMenuItem()
         EdicionToolStripMenuItem = New ToolStripMenuItem()
+        MnuDeshacerToolStripMenuItem = New ToolStripMenuItem()
+        MnuRehacerToolStripMenuItem = New ToolStripMenuItem()
         FormatoToolStripMenuItem = New ToolStripMenuItem()
+        HerramientasToolStripMenuItem = New ToolStripMenuItem()
+        MnuBuscarToolStripMenuItem = New ToolStripMenuItem()
         VerToolStripMenuItem = New ToolStripMenuItem()
         AyudaToolStripMenuItem = New ToolStripMenuItem()
         MnuNuevoToolStripMenuItem = New ToolStripMenuItem()
@@ -73,7 +77,7 @@ Partial Class frmBlocNotas
         ' 
         ' mnuPrincipal
         ' 
-        mnuPrincipal.Items.AddRange(New ToolStripItem() {ArchivoToolStripMenuItem, EdicionToolStripMenuItem, FormatoToolStripMenuItem, VerToolStripMenuItem, AyudaToolStripMenuItem})
+        mnuPrincipal.Items.AddRange(New ToolStripItem() {ArchivoToolStripMenuItem, EdicionToolStripMenuItem, FormatoToolStripMenuItem, HerramientasToolStripMenuItem, VerToolStripMenuItem, AyudaToolStripMenuItem})
         mnuPrincipal.Location = New Point(0, 0)
         mnuPrincipal.Name = "mnuPrincipal"
         mnuPrincipal.Size = New Size(800, 24)
@@ -119,10 +123,17 @@ Partial Class frmBlocNotas
         ' 
         ' EdicionToolStripMenuItem
         ' 
-        EdicionToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {MnuCortarToolStripMenuItem, MnuCopiarToolStripMenuItem, MnuPegarToolStripMenuItem, MnuSeleccionarTodoToolStripMenuItem})
+        EdicionToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {MnuDeshacerToolStripMenuItem, MnuRehacerToolStripMenuItem, MnuCortarToolStripMenuItem, MnuCopiarToolStripMenuItem, MnuPegarToolStripMenuItem, MnuSeleccionarTodoToolStripMenuItem})
         EdicionToolStripMenuItem.Name = "EdicionToolStripMenuItem"
         EdicionToolStripMenuItem.Size = New Size(58, 20)
         EdicionToolStripMenuItem.Text = "edicion"
+        ' 
+        ' HerramientasToolStripMenuItem
+        ' 
+        HerramientasToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {MnuBuscarToolStripMenuItem})
+        HerramientasToolStripMenuItem.Name = "HerramientasToolStripMenuItem"
+        HerramientasToolStripMenuItem.Size = New Size(90, 20)
+        HerramientasToolStripMenuItem.Text = "herramientas"
         ' 
         ' FormatoToolStripMenuItem
         ' 
@@ -177,6 +188,27 @@ Partial Class frmBlocNotas
         MnuSalirToolStripMenuItem.ShortcutKeys = Keys.Alt Or Keys.F4
         MnuSalirToolStripMenuItem.Size = New Size(180, 22)
         MnuSalirToolStripMenuItem.Text = "&Salir"
+        ' 
+        ' MnuDeshacerToolStripMenuItem
+        ' 
+        MnuDeshacerToolStripMenuItem.Name = "MnuDeshacerToolStripMenuItem"
+        MnuDeshacerToolStripMenuItem.ShortcutKeys = Keys.Control Or Keys.Z
+        MnuDeshacerToolStripMenuItem.Size = New Size(204, 22)
+        MnuDeshacerToolStripMenuItem.Text = "Deshacer"
+        ' 
+        ' MnuRehacerToolStripMenuItem
+        ' 
+        MnuRehacerToolStripMenuItem.Name = "MnuRehacerToolStripMenuItem"
+        MnuRehacerToolStripMenuItem.ShortcutKeys = Keys.Control Or Keys.Y
+        MnuRehacerToolStripMenuItem.Size = New Size(204, 22)
+        MnuRehacerToolStripMenuItem.Text = "Rehacer"
+        ' 
+        ' MnuBuscarToolStripMenuItem
+        ' 
+        MnuBuscarToolStripMenuItem.Name = "MnuBuscarToolStripMenuItem"
+        MnuBuscarToolStripMenuItem.ShortcutKeys = Keys.Control Or Keys.F
+        MnuBuscarToolStripMenuItem.Size = New Size(180, 22)
+        MnuBuscarToolStripMenuItem.Text = "Buscar..."
         ' 
         ' MnuCortarToolStripMenuItem
         ' 
@@ -263,9 +295,8 @@ Partial Class frmBlocNotas
         ' tsbNegrita
         ' 
         tsbNegrita.CheckOnClick = True
-        tsbNegrita.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbNegrita.Image = CType(resources.GetObject("tsbNegrita.Image"), Image)
-        tsbNegrita.ImageTransparentColor = Color.Magenta
+        tsbNegrita.DisplayStyle = ToolStripItemDisplayStyle.Text
+        tsbNegrita.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         tsbNegrita.Name = "tsbNegrita"
         tsbNegrita.Size = New Size(23, 22)
         tsbNegrita.Text = "N"
@@ -273,9 +304,8 @@ Partial Class frmBlocNotas
         ' tsbCursiva
         ' 
         tsbCursiva.CheckOnClick = True
-        tsbCursiva.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbCursiva.Image = CType(resources.GetObject("tsbCursiva.Image"), Image)
-        tsbCursiva.ImageTransparentColor = Color.Magenta
+        tsbCursiva.DisplayStyle = ToolStripItemDisplayStyle.Text
+        tsbCursiva.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         tsbCursiva.Name = "tsbCursiva"
         tsbCursiva.Size = New Size(23, 22)
         tsbCursiva.Text = "K"
@@ -283,21 +313,21 @@ Partial Class frmBlocNotas
         ' tsbSubrayado
         ' 
         tsbSubrayado.CheckOnClick = True
-        tsbSubrayado.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbSubrayado.Image = CType(resources.GetObject("tsbSubrayado.Image"), Image)
-        tsbSubrayado.ImageTransparentColor = Color.Magenta
+        tsbSubrayado.DisplayStyle = ToolStripItemDisplayStyle.Text
+        tsbSubrayado.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
         tsbSubrayado.Name = "tsbSubrayado"
         tsbSubrayado.Size = New Size(23, 22)
         tsbSubrayado.Text = "S"
         ' 
         ' ToolStripButton1
         ' 
-        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
-        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
-        ToolStripButton1.ImageTransparentColor = Color.Magenta
+        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text
+        ToolStripButton1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        ToolStripButton1.ForeColor = Color.Red
         ToolStripButton1.Name = "ToolStripButton1"
         ToolStripButton1.Size = New Size(23, 22)
-        ToolStripButton1.Text = "ToolStripButton1"
+        ToolStripButton1.Text = "A"
+        ToolStripButton1.ToolTipText = "Color de texto"
         ' 
         ' tscbFuente
         ' 
@@ -402,7 +432,11 @@ Partial Class frmBlocNotas
     Friend WithEvents rtbDocumento As RichTextBox
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EdicionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MnuDeshacerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MnuRehacerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FormatoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HerramientasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MnuBuscarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MnuNuevoToolStripMenuItem As ToolStripMenuItem
